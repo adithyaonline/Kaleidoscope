@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google Maps JavaScript API v3 Example: Street View Layer</title>
+    <link href="default.css" rel="stylesheet">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAXm3OwGYcgGfP3TdvLMnrZ7N4onSi6YFw&sensor=false"> </script>
+    <script>
+
+      function initialize() {
+        //Entry point ATB
+        var entry = new google.maps.LatLng(13.011200,74.794000);
+
+        var mapOptions = {
+          center: entry,
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+
+        var panoOptions = {
+          pano: 'atb',
+          visible: true,
+          panoProvider: getCustomPanorama
+        };
+
+        var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano_canvas'), panoOptions);
+        //map.setStreetView(panorama);
+      }
+	  
+
+      function getCustomPanorama(pano, zoom, tileX, tileY) {
+        switch (pano){
+    
+              case 'atb': 
+                  return {
+                      location: {
+                        pano: 'atb',
+                        description: 'NITK'
+                      },
+                      links: [],
+                      // The text for the copyright control.
+                      copyright: 'Nexus4 (c) 2013 mukta',
+                      // The definition of the tiles for this panorama.
+                      tiles: {
+                        tileSize: new google.maps.Size(1024, 512),
+                        worldSize: new google.maps.Size(1024, 512),
+                        // The heading in degrees at the origin of the panorama
+                        // tile set.
+                        centerHeading: 15,
+                        getTileUrl: getCustomPanoramaTileUrl
+                    	}
+                  };
+              break; 
+        }
+      }
+    
+	    function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY)
+      {
+          //console.log("pano = " + pano);
+          switch(pano){
+            case 'atb':
+            return "Images/ATB.jpg";
+              break;
+          }
+              
+
+
+      }
+    
+    
+	  
+    </script>
+  
+  </head>
+  <body onload="initialize()">
+    <div id="pano_canvas" style="width: 600px; height: 450px"></div>
+    <div id="map_canvas" style="position:absolute; left:610px; top: 8px; width: 600px; height: 450px;"></div>
+  </body></html>
