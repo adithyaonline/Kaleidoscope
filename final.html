@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +19,7 @@ function initialize() {
 	var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
 	var panoOptions = {
-	  pano: 'atb',
+	  pano: 'MBC',
 	  visible: true,
 	  panoProvider: getCustomPanorama
 	};
@@ -31,32 +30,525 @@ function initialize() {
 function getCustomPanorama(pano, zoom, tileX, tileY) {
 
         switch (pano){
-	case 'atb': 
+	case 'ATB': 
 		return {
 			location: {
-			  pano: 'atb',
-			  description: 'NITK'
+			  pano: 'ATB',
+			  description: 'ATB'
 			},
 			
-			links: [],
+			links: [{
+			description: 'NTB',
+			heading: 90,
+			pano: 'NTB'
+			},{
+			description: 'MB Left',
+			heading: 15,
+			pano: 'MBL'
+			}],
 			copyright: 'Nexus4 (c) 2013 mukta',
 			
 			tiles: {
 			  tileSize: new google.maps.Size(1024, 512),
 			  worldSize: new google.maps.Size(1024, 512),
-			  centerHeading: 15,
+			  centerHeading: 180,
 			  getTileUrl: getCustomPanoramaTileUrl
 			}
 		};
-		break; 
+		break;
+	case 'NTB': 
+		return {
+			location: {
+			  pano: 'NTB',
+			  description: 'NTB'
+			},
+			
+			links: [{
+			description: 'ATB',
+			heading: 270,
+			pano: 'ATB'
+			},{
+			description: 'Workshop',
+			heading: 90,
+			pano: 'Workshop'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 105,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MBC': 
+		return {
+			location: {
+			  pano: 'MBC',
+			  description: 'MB Center'
+			},
+			
+			links: [{
+			description: 'MB Left',
+			heading: 165,
+			pano: 'MBL'
+			},{
+			description: 'MB Right',
+			heading: 0,
+			pano: 'MBR'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 90,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MBL': 
+		return {
+			location: {
+			  pano: 'MBL',
+			  description: 'MB Left'
+			},
+			
+			links: [{
+			description: 'ATB',
+			heading: 225,
+			pano: 'ATB'
+			},{
+			description: 'MB Center',
+			heading: 345,
+			pano: 'MBC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 175,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Workshop': 
+		return {
+			location: {
+			  pano: 'Workshop',
+			  description: 'Workshop'
+			},
+			
+			links: [{
+			description: 'NTB',
+			heading: 270,
+			pano: 'NTB'
+			},{
+			description: 'Food Court',
+			heading: 180,
+			pano: 'FC'
+			},{
+			description: 'Meta',
+			heading: 0,
+			pano: 'Meta'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 105,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'FC': 
+		return {
+			location: {
+			  pano: 'FC',
+			  description: 'Food Court'
+			},
+			
+			links: [{
+			description: 'Workshop',
+			heading: 0,
+			pano: 'Workshop'
+			},{
+			description: 'CCC',
+			heading: 90,
+			pano: 'CCC'
+			},{
+			description: 'ATM',
+			heading: 270,
+			pano: 'ATM'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 130,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'ATM': 
+		return {
+			location: {
+			  pano: 'ATM',
+			  description: 'ATM'
+			},
+			
+			links: [{
+			description: 'Food Court',
+			heading: 90,
+			pano: 'FC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 90,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'CCC': 
+		return {
+			location: {
+			  pano: 'CCC',
+			  description: 'CCC'
+			},
+			
+			links: [{
+			description: 'Food Court',
+			heading: 270,
+			pano: 'FC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 270,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Meta': 
+		return {
+			location: {
+			  pano: 'Meta',
+			  description: 'Meta Dept'
+			},
+			
+			links: [{
+			description: 'Workshop',
+			heading: 165,
+			pano: 'Workshop'
+			},{
+			description: 'Behind MB',
+			heading: 0,
+			pano: 'BMB'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 110,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'BMB': 
+		return {
+			location: {
+			  pano: 'BMB',
+			  description: 'Behind MB'
+			},
+			
+			links: [{
+			description: 'Meta',
+			heading: 180,
+			pano: 'Meta'
+			},{
+			description: 'Pavilion',
+			heading: 315,
+			pano: 'Pavilion'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 85,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Pavilion': 
+		return {
+			location: {
+			  pano: 'Pavilion',
+			  description: 'Pavilion'
+			},
+			
+			links: [{
+			description: 'Behind MB',
+			heading: 135,
+			pano: 'BMB'
+			},{
+			description: 'Hydraulics Lab',
+			heading: 315,
+			pano: 'HLab'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 0,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'HLab': 
+		return {
+			location: {
+			  pano: 'HLab',
+			  description: 'Hydraulics Lab'
+			},
+			
+			links: [{
+			description: 'Pavilion',
+			heading: 135,
+			pano: 'Pavilion'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 90,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MBR': 
+		return {
+			location: {
+			  pano: 'MBR',
+			  description: 'MB Right'
+			},
+			
+			links: [{
+			description: 'MB Center',
+			heading: 180,
+			pano: 'MBC'
+			},{
+			description: 'Mining Dept / Junk Art',
+			heading: 45,
+			pano: 'Mining'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 0,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Mining': 
+		return {
+			location: {
+			  pano: 'Mining',
+			  description: 'Mining Dept / Junk Art'
+			},
+			
+			links: [{
+			description: 'MBR',
+			heading: 225,
+			pano: 'MBR'
+			},{
+			description: 'Mining Dept / Structures Lab',
+			heading: 0,
+			pano: 'SLab'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 180,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'SLab': 
+		return {
+			location: {
+			  pano: 'SLab',
+			  description: 'Mining Dept / Structures Lab'
+			},
+			
+			links: [{
+			description: 'Mining',
+			heading: 180,
+			pano: 'Mining'
+			},{
+			description: 'GB Junction',
+			heading: 0,
+			pano: 'GBJ'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 160,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'GBJ': 
+		return {
+			location: {
+			  pano: 'GBJ',
+			  description: 'GB Junction'
+			},
+			
+			links: [{
+			description: 'Mining Dept / Structures Lab',
+			heading: 180,
+			pano: 'SLab'
+			},{
+			description: 'Reddy Gate',
+			heading: 270,
+			pano: 'Reddy'
+			},{
+			description: 'GB Underpass Junction',
+			heading: 0,
+			pano: 'GBUPJ'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 225,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Reddy': 
+		return {
+			location: {
+			  pano: 'Reddy',
+			  description: 'Reddy Gate'
+			},
+			
+			links: [{
+			description: 'GB Junction',
+			heading: 90,
+			pano: 'GBJ'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 135,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'GBUPJ': 
+		return {
+			location: {
+			  pano: 'GBUPJ',
+			  description: 'GB Underpass Junction'
+			},
+			
+			links: [{
+			description: 'GB Junction',
+			heading: 180,
+			pano: 'GBJ'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 255,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
 	}
 }
 
 function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY)
 {
 	switch(pano){
-	case 'atb':
+	case 'ATB':
 		return "Images/ATB.jpg";
+		break;
+	case 'NTB':
+		return "Images/NTB.jpg";
+		break;
+	case 'MBC':
+		return "Images/MB_center.jpg";
+		break;
+	case 'MBL':
+		return "Images/MB_LIB.jpg";
+		break;
+	case 'Workshop':
+		return "Images/Workshop.jpg";
+		break;
+	case 'FC':
+		return "Images/FC.jpg";
+		break;
+	case 'ATM':
+		return "Images/ATM.jpg";
+		break;
+	case 'CCC':
+		return "Images/ccc.jpg";
+		break;
+	case 'Meta':
+		return "Images/Meta1.jpg";
+		break;
+	case 'BMB':
+		return "Images/Phy_chem.jpg";
+		break;
+	case 'Pavilion':
+		return "Images/Pavilion.jpg";
+		break;
+	case 'HLab':
+		return "Images/Hydrolics lab.jpg";
+		break;
+	case 'MBR':
+		return "Images/Mining_MB.jpg";
+		break;
+	case 'Mining':
+		return "Images/JunkArt_MB.jpg";
+		break;
+	case 'SLab':
+		return "Images/ApMech_Mining.jpg";
+		break;
+	case 'GBJ':
+		return "Images/GB Junction.JPG";
+		break;
+	case 'Reddy':
+		return "Images/Inside Reddy's Gate.JPG";
+		break;
+	case 'GBUPJ':
+		return "Images/Junction to GB Underpass.JPG";
 		break;
 	}
 }
