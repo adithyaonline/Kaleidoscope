@@ -19,7 +19,7 @@ function initialize() {
 	var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
 	var panoOptions = {
-	  pano: 'MBC',
+	  pano: 'ATB',
 	  visible: true,
 	  panoProvider: getCustomPanorama
 	};
@@ -405,6 +405,10 @@ function getCustomPanorama(pano, zoom, tileX, tileY) {
 			description: 'GB Junction',
 			heading: 0,
 			pano: 'GBJ'
+			},{
+			description: 'Way to Chemical Department',
+			heading: 90,
+			pano: 'MiningChem'
 			}],
 			copyright: 'Nexus4 (c) 2013 mukta',
 			
@@ -435,6 +439,10 @@ function getCustomPanorama(pano, zoom, tileX, tileY) {
 			description: 'GB Underpass Junction',
 			heading: 0,
 			pano: 'GBUPJ'
+			},{
+			description: 'Mechanical Department',
+			heading: 90,
+			pano: 'MechDept'
 			}],
 			copyright: 'Nexus4 (c) 2013 mukta',
 			
@@ -457,6 +465,10 @@ function getCustomPanorama(pano, zoom, tileX, tileY) {
 			description: 'GB Junction',
 			heading: 90,
 			pano: 'GBJ'
+			},{
+			description: 'Western Campus Gate',
+			heading: 270,
+			pano: 'Westgate'
 			}],
 			copyright: 'Nexus4 (c) 2013 mukta',
 			
@@ -486,6 +498,436 @@ function getCustomPanorama(pano, zoom, tileX, tileY) {
 			  tileSize: new google.maps.Size(1024, 512),
 			  worldSize: new google.maps.Size(1024, 512),
 			  centerHeading: 255,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MechDept': 
+		return {
+			location: {
+			  pano: 'MechDept',
+			  description: 'Mechanical Department'
+			},
+			
+			links: [{
+			description: 'GB Junction',
+			heading: 270,
+			pano: 'GBJ'
+			},{
+			description: 'Nandini Junction',
+			heading: 90,
+			pano: 'Nandini'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 90,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Nandini': 
+		return {
+			location: {
+			  pano: 'Nandini',
+			  description: 'Nandini Junction'
+			},
+			
+			links: [{
+			description: 'Mechanical Department',
+			heading: 270,
+			pano: 'MechDept'
+			},{
+			description: 'Down Co-op',
+			heading: 0,
+			pano: 'DC'
+			},{
+			description: 'Tennis',
+			heading: 180,
+			pano: 'Tennis'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 120,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'DC': 
+		return {
+			location: {
+			  pano: 'DC',
+			  description: 'Down Co-op'
+			},
+			
+			links: [{
+			description: 'Nandini Junction',
+			heading: 180,
+			pano: 'Nandini'
+			},{
+			description: 'Prof Quarters Junction',
+			heading: 0,
+			pano: 'Prof'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 200,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Prof': 
+		return {
+			location: {
+			  pano: 'Prof',
+			  description: 'Prof Quarters Junction'
+			},
+			
+			links: [{
+			description: 'Down Co-op',
+			heading: 180,
+			pano: 'DC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 285,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Tennis': 
+		return {
+			location: {
+			  pano: 'Tennis',
+			  description: 'Tennis Courts'
+			},
+			
+			links: [{
+			description: 'Nandini Junction',
+			heading: 0,
+			pano: 'Nandini'
+			},{
+			description: 'BB Courts / SAC Entrance',
+			heading: 180,
+			pano: 'BBSAC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 160,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'BBSAC': 
+		return {
+			location: {
+			  pano: 'BBSAC',
+			  description: 'BB Courts / SAC Entrance'
+			},
+			
+			links: [{
+			description: 'Tennis Court',
+			heading: 0,
+			pano: 'Tennis'
+			},{
+			description: 'BB Court',
+			heading: 45,
+			pano: 'BBC'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 125,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'BBC': 
+		return {
+			location: {
+			  pano: 'BBC',
+			  description: 'BB Courts'
+			},
+			
+			links: [{
+			description: 'SAC Entrance',
+			heading: 220,
+			pano: 'BBSAC'
+			},{
+			description: 'Volleyball',
+			heading: 90,
+			pano: 'Volleyball'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 100,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Volleyball': 
+		return {
+			location: {
+			  pano: 'Volleyball',
+			  description: 'Volleyball Court'
+			},
+			
+			links: [{
+			description: 'BB Court',
+			heading: 270,
+			pano: 'BBC'
+			},{
+			description: 'Swimming Pool Junction',
+			heading: 90,
+			pano: 'Pool'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 0,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Pool': 
+		return {
+			location: {
+			  pano: 'Pool',
+			  description: 'Swimming Pool Junction'
+			},
+			
+			links: [{
+			description: 'Volleyball Court',
+			heading: 270,
+			pano: 'Volleyball'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 270,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'Westgate': 
+		return {
+			location: {
+			  pano: 'Westgate',
+			  description: 'Western Campus Gate'
+			},
+			
+			links: [{
+			description: 'Reddy Gate',
+			heading: 90,
+			pano: 'Reddy'
+			},{
+			description: 'Western Campus Amul',
+			heading: 270,
+			pano: 'WAmul'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 200,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'WAmul': 
+		return {
+			location: {
+			  pano: 'WAmul',
+			  description: 'Western Campus Amul'
+			},
+			
+			links: [{
+			description: 'Western Campus Gate',
+			heading: 90,
+			pano: 'Westgate'
+			},{
+			description: 'ECE Department',
+			heading: 160,
+			pano: 'ECDept'
+			},{
+			description: 'JC Bose Guest House',
+			heading: 315,
+			pano: 'JCBGuest'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 45,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'ECDept': 
+		return {
+			location: {
+			  pano: 'ECDept',
+			  description: 'ECE Department'
+			},
+			
+			links: [{
+			description: 'Western Campus Gate',
+			heading: 0,
+			pano: 'Westgate'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 160,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'JCBGuest': 
+		return {
+			location: {
+			  pano: 'JCBGuest',
+			  description: 'JC Bose Guest House'
+			},
+			
+			links: [{
+			description: 'Western Campus Amul',
+			heading: 140,
+			pano: 'WAmul'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 100,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MiningChem': 
+		return {
+			location: {
+			  pano: 'MiningChem',
+			  description: 'Way to Chem / Mech Department'
+			},
+			
+			links: [{
+			description: 'Mining Dept / Structures Lab',
+			heading: 270,
+			pano: 'SLab'
+			},{
+			description: 'Way to Chem / Mech Dept',
+			heading: 90,
+			pano: 'MechChem'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 90,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'MechChem': 
+		return {
+			location: {
+			  pano: 'MechChem',
+			  description: 'Behind Mech Dept / Way to Chem Dept'
+			},
+			
+			links: [{
+			description: 'Way to Mining Department',
+			heading: 270,
+			pano: 'MiningChem'
+			},{
+			description: 'Chem Dept',
+			heading: 135,
+			pano: 'ChemWay'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 180,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'ChemWay': 
+		return {
+			location: {
+			  pano: 'ChemWay',
+			  description: 'Way to Chem Dept'
+			},
+			
+			links: [{
+			description: 'Mech Dept / Mining Dept',
+			heading: 0,
+			pano: 'MechChem'
+			},{
+			description: 'Chem Dept',
+			heading: 180,
+			pano: 'ChemDept'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 270,
+			  getTileUrl: getCustomPanoramaTileUrl
+			}
+		};
+		break;
+	case 'ChemDept': 
+		return {
+			location: {
+			  pano: 'ChemDept',
+			  description: 'Chem Dept'
+			},
+			
+			links: [{
+			description: 'Mech Dept',
+			heading: 0,
+			pano: 'ChemWay'
+			}],
+			copyright: 'Nexus4 (c) 2013 mukta',
+			
+			tiles: {
+			  tileSize: new google.maps.Size(1024, 512),
+			  worldSize: new google.maps.Size(1024, 512),
+			  centerHeading: 180,
 			  getTileUrl: getCustomPanoramaTileUrl
 			}
 		};
@@ -549,6 +991,57 @@ function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY)
 		break;
 	case 'GBUPJ':
 		return "Images/Junction to GB Underpass.JPG";
+		break;
+	case 'BBC':
+		return "Images/BB Court.JPG";
+		break;
+	case 'BBSAC':
+		return "Images/BB Court+SAC Entrance.JPG";
+		break;
+	case 'ChemDept':
+		return "Images/Chemical_dept.jpg";
+		break;
+	case 'ChemWay':
+		return "Images/Chem_way.jpg";
+		break;
+	case 'DC':
+		return "Images/DC.JPG";
+		break;
+	case 'WAmul':
+		return "Images/ECE Amul.JPG";
+		break;
+	case 'ECDept':
+		return "Images/ECE Dept.JPG";
+		break;
+	case 'JCBGuest':
+		return "Images/JC Bose Guest House.JPG";
+		break;
+	case 'MechChem':
+		return "Images/Mech_Chem.jpg";
+		break;
+	case 'MechDept':
+		return "Images/Mech Dept Front .JPG";
+		break;
+	case 'MiningChem':
+		return "Images/Mining_chemical.jpg";
+		break;
+	case 'Nandini':
+		return "Images/Nandini Junction.JPG";
+		break;
+	case 'Prof':
+		return "Images/Profs quarters junction along DC.JPG";
+		break;
+	case 'Pool':
+		return "Images/Swimming Pool Junction.JPG";
+		break;
+	case 'Tennis':
+		return "Images/Tennis Courts.JPG";
+		break;
+	case 'Volleyball':
+		return "Images/Volleyball Courts.JPG";
+		break;
+	case 'Westgate':
+		return "Images/West Campus Gate.JPG";
 		break;
 	}
 }
